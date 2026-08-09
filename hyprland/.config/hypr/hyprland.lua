@@ -54,6 +54,7 @@ local browser     = "google-chrome-stable"
 hl.on("hyprland.start", function () 
 --   hl.exec_cmd("nm-applet")
     hl.exec_cmd("waybar")
+    hl.exec_cmd("hyprpaper")
     hl.exec_cmd("hyprctl setcursor Bibata-Original-Amber 18")
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
 end)
@@ -102,7 +103,7 @@ hl.config({
         border_size = 3,
 
         col = {
-            active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
+            active_border   = { colors = {"0xffff8100", "0xffd8d1c7"}, angle = 45 },
             inactive_border = "rgba(595959aa)",
         },
 
@@ -276,7 +277,9 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized" }))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(launcher))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(runner))
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker -a"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd([[sh -c 'grim -g "$(slurp)" - | wl-copy']]))
+-- hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + T", hl.dsp.layout("togglesplit"))    -- dwindle only
 
 -- Move focus with mainMod + vim keys
@@ -300,8 +303,8 @@ for i = 1, 5 do
 end
 
 -- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+-- hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
+-- hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
