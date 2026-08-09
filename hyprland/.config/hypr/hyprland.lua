@@ -54,6 +54,7 @@ local browser     = "google-chrome-stable"
 hl.on("hyprland.start", function () 
 --   hl.exec_cmd("nm-applet")
     hl.exec_cmd("waybar")
+    hl.exec_cmd("/home/" .. os.getenv("USER") .. "/dotfiles/waybar/.config/waybar/auto_reload.sh")
     hl.exec_cmd("hyprpaper")
     hl.exec_cmd("hyprctl setcursor Bibata-Original-Amber 18")
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
