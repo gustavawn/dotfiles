@@ -1,0 +1,106 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 38,
+    "margin-top": 6,
+    "margin-left": 10,
+    "margin-right": 10,
+
+    "modules-left": ["hyprland/workspaces", "hyprland/submap"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["cpu", "memory", "pulseaudio/slider", "network", "bluetooth", "battery", "clock", "custom/power", "tray"],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}"
+    },
+
+    "hyprland/window": {
+        "max-length": 45,
+        "separate-outputs": true
+    },
+
+    "cpu": {
+        "interval": 2,
+        "format": "  {usage}%"
+    },
+
+    "memory": {
+        "interval": 2,
+        "format": "  {percentage}%"
+    },
+
+    "clock": {
+        "interval": 1,
+        "locale": "en_US.UTF-8",
+        "format": "󰥔  {:%H:%M:%S}",
+        "format-alt": "󰸗  {:%A, %B %d, %Y}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span color='#d4a359'><b>{}</b></span>",
+                "days":       "<span color='#e6e1cf'>{}</span>",
+                "weeks":      "<span color='#948b82'><b>W{}</b></span>",
+                "weekdays":   "<span color='#d4a359'><b>{}</b></span>",
+                "today":      "<span color='#12141c' background='#d4a359'><b>{}</b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    },
+
+    "network": {
+        "format-wifi": "󰤨  {essid}",
+        "format-ethernet": "󰈀  Connected",
+        "format-disconnected": "󰤭  Offline",
+        "tooltip-format-wifi": "󰤨  {essid} ({signalStrength}%)",
+        "on-click": "kitty -e nmtui"
+    },
+
+    "bluetooth": {
+        "format": "󰂯  {status}",
+        "format-disabled": "󰂲  Off",
+        "format-connected": "󰂱  {num_connections}",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "kitty -e bluetoothctl"
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "systemctl poweroff",
+        "on-click-right": "systemctl reboot"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    }
+}
