@@ -1,0 +1,145 @@
+* {
+  font-family: "JetBrainsMono Nerd Font Propo", sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+window#waybar {
+  background-color: transparent;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: #e6e1cf;
+}
+
+#workspaces,
+#window,
+#cpu,
+#memory,
+#battery,
+#clock,
+#pulseaudio-slider,
+#network,
+#bluetooth,
+#custom-power,
+#tray {
+  background-color: rgba(18, 20, 28, 0.75);
+  border: 1px solid rgba(212, 163, 89, 0.3);
+  border-radius: 12px;
+  padding: 2px 12px;
+  margin: 0 4px;
+}
+
+#window.empty {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  color: #948b82;
+  background-color: transparent;
+  border-radius: 8px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+#workspaces button:hover {
+  color: #e6e1cf;
+  background-color: rgba(212, 163, 89, 0.2);
+}
+
+#workspaces button.active {
+  color: #12141c;
+  background-color: #d4a359;
+}
+
+#workspaces button.urgent {
+  background-color: #e74c3c;
+  color: #ffffff;
+}
+
+#window {
+  color: #d4a359;
+}
+
+#cpu,
+#memory {
+  color: #d4a359;
+}
+
+#battery {
+  color: #e6e1cf;
+}
+
+#battery.charging, #battery.plugged {
+  color: #a3be8c;
+  border-color: rgba(163, 190, 140, 0.5);
+}
+
+#battery.critical:not(.charging) {
+  background-color: #bf616a;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#clock {
+  color: #e6e1cf;
+  border-color: rgba(212, 163, 89, 0.4);
+}
+
+#pulseaudio-slider {
+  padding: 2px 8px;
+  min-width: 80px;
+}
+
+#pulseaudio-slider trough {
+  min-height: 8px;
+  min-width: 70px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#pulseaudio-slider highlight {
+  min-height: 8px;
+  border-radius: 5px;
+  background-color: #d4a359;
+}
+
+#network,
+#bluetooth {
+  color: #e6e1cf;
+}
+
+#custom-power {
+  color: #e74c3c;
+  border-color: rgba(231, 76, 60, 0.4);
+}
+
+#custom-power:hover {
+  background-color: rgba(231, 76, 60, 0.2);
+}
+
+tooltip {
+  background: rgba(18, 20, 28, 0.95);
+  border: 1px solid #d4a359;
+  border-radius: 10px;
+}
+
+tooltip label {
+  color: #e6e1cf;
+  padding: 6px;
+}
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
